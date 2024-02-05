@@ -56,30 +56,30 @@ class BottomNavigatorState extends State<BottomNavigatorScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        showUnselectedLabels: true,
-        selectedFontSize: 12,
+        //showUnselectedLabels: true,
+        selectedFontSize: 14,
         unselectedFontSize: 12,
-        type: BottomNavigationBarType.fixed,
+        //type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home, size: 32),
-            label: 'Home',
+            label: 'Trang chủ',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.collections_bookmark, size: 32),
-            label: 'My Courses',
+            label: 'Tủ truyện',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications, size: 32),
-            label: 'Blogs',
+            label: 'Thông báo',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle, size: 32),
-            label: 'My Profile',
+            label: 'Tài khoản',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xff1E0094),
+        selectedItemColor: const Color(0xff128c7f),
         unselectedItemColor: Colors.black,
         onTap: _onItemTapped,
       ),
