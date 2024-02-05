@@ -30,13 +30,7 @@ environment:
 dependencies:
   #image
   image_picker: ^1.0.4
-  fluttericon: ^2.0.0
-  flutter_octicons: ^0.42.0
   flutter_svg: ^2.0.9
-  #font
-  google_fonts: ^6.1.0
-  #local
-  shared_preferences: ^2.2.2
   # firebase
   #firebase_core: ^2.23.0
   #firebase_database: ^10.2.5
@@ -63,16 +57,16 @@ dependencies:
   #slider
   carousel_slider: ^4.2.1
   #audio:
-  audioplayers: ^5.2.1
-  just_audio: ^0.9.34
+  #audioplayers: ^5.2.1
+  #just_audio: ^0.9.34
   #format
   intl: ^0.19.0
   #percent_indicator
   percent_indicator: ^4.2.3
   #web
-  webview_flutter: ^4.4.3
+  #webview_flutter: ^4.4.3
   #animation
-  animation_list: ^3.0.0
+  #animation_list: ^3.0.0
   #splash:
   flutter_native_splash: ^2.3.10
   flutter:
@@ -98,6 +92,13 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+flutter_native_splash:
+  color: "#128c7f"
+  image: 'assets/images/logo.png'
+
+  android_12:
+    color: "#128c7f"
+    image: 'assets/images/logo.png'
 
 # The following section is specific to Flutter packages.
 flutter:
