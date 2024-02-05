@@ -28,6 +28,53 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  #image
+  image_picker: ^1.0.4
+  fluttericon: ^2.0.0
+  flutter_octicons: ^0.42.0
+  flutter_svg: ^2.0.9
+  #font
+  google_fonts: ^6.1.0
+  #local
+  shared_preferences: ^2.2.2
+  # firebase
+  #firebase_core: ^2.23.0
+  #firebase_database: ^10.2.5
+  #firebase_storage: ^11.5.2
+  #firebase_auth: ^4.15.3
+  #state_notifier:
+  injectable: ^2.3.2
+  go_router: ^13.0.1
+  get_it: ^7.6.4
+  flutter_bloc: ^8.1.3
+  hydrated_bloc: ^9.1.3
+  #json
+  equatable: ^2.0.5
+  json_annotation: ^4.8.1
+  json_serializable: ^6.7.1
+  #logging:
+  logging: ^1.2.0
+  #rate:
+  flutter_rating_bar: ^4.0.1
+  #api
+  uuid: ^4.1.0
+  http: ^1.1.2
+  path_provider: ^2.1.1
+  #slider
+  carousel_slider: ^4.2.1
+  #audio:
+  audioplayers: ^5.2.1
+  just_audio: ^0.9.34
+  #format
+  intl: ^0.19.0
+  #percent_indicator
+  percent_indicator: ^4.2.3
+  #web
+  webview_flutter: ^4.4.3
+  #animation
+  animation_list: ^3.0.0
+  #splash:
+  flutter_native_splash: ^2.3.10
   flutter:
     sdk: flutter
 
@@ -37,6 +84,8 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  injectable_generator: ^2.4.1
+  build_runner: ^2.4.7
   flutter_test:
     sdk: flutter
 
@@ -52,6 +101,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+    - assets/images/
+    - assets/icons/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
