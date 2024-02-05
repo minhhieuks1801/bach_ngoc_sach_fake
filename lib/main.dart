@@ -1,5 +1,6 @@
 import 'package:bach_ngoc_sach_fake/router/router.dart';
 import 'package:bach_ngoc_sach_fake/service/account_bloc.dart';
+import 'package:bach_ngoc_sach_fake/service/custom_theme_bloc.dart';
 import 'package:bach_ngoc_sach_fake/service/get_it.dart';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => getIt<AccountBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => getIt<CustomThemeBloc>(),
         ),
       ],
       child: MaterialApp.router(

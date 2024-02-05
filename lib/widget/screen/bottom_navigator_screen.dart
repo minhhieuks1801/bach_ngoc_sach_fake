@@ -5,7 +5,6 @@ import 'package:bach_ngoc_sach_fake/widget/widget/home_widget.dart';
 import 'package:bach_ngoc_sach_fake/widget/widget/notification_widget.dart';
 import 'package:bach_ngoc_sach_fake/widget/widget/profile_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 GoRoute bottomNavigatorScreenRouter = GoRoute(

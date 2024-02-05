@@ -1,15 +1,35 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 part 'custom_theme_event.dart';
+
 part 'custom_theme_state.dart';
 
-class CustomThemeBloc extends Bloc<CustomThemeEvent, CustomThemeState> {
-  CustomThemeBloc() : super(CustomThemeInitial()) {
+class CustomThemeBloc extends HydratedBloc<CustomThemeEvent, CustomThemeState> {
+  CustomThemeBloc()
+      : super(const CustomThemeState(status: CustomThemeStatus.start, darkOrNight: true)) {
     on<CustomThemeEvent>((event, emit) {
-      // TODO: implement event handler
+      on<UpdateThemeEvent>(update);
     });
+  }
+
+  @override
+  CustomThemeState? fromJson(Map<String, dynamic> json) {
+    return CustomThemeState.fromJson(json);
+  }
+
+  @override
+  Map<String, dynamic>? toJson(CustomThemeState state) {
+    return state.toJson();
+  }
+
+  Future<void> update(UpdateThemeEvent event, Emitter<CustomThemeState> emit) async {
+    try{
+      emit(state.copyWith(darkOrNight: event.darkOrNight, status: CustomThemeStatus.success));
+    }catch(e){
+      emit(state.copyWith(darkOrNight: true, status: CustomThemeStatus.error));
+    }
   }
 }
