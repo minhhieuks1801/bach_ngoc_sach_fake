@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class HomeWidget extends StatefulWidget {
-  const HomeWidget({super.key});
+class NotificationWidget extends StatefulWidget {
+  const NotificationWidget({super.key});
 
   @override
-  State<HomeWidget> createState() => _HomeWidgetState();
+  State<NotificationWidget> createState() => _NotificationWidgetState();
 }
 
-class _HomeWidgetState extends State<HomeWidget> {
+class _NotificationWidgetState extends State<NotificationWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Hello .....!',
+          'Notification',
           style: TextStyle(
             fontSize: 18,
           ),
@@ -21,7 +21,7 @@ class _HomeWidgetState extends State<HomeWidget> {
       ),
       body: const Center(
         child: Text(
-          'Home',
+          'Notification',
           style: TextStyle(
             fontSize: 38,
           ),

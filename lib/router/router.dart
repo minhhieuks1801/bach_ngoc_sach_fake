@@ -9,7 +9,7 @@ class RouterCustom {
   RouterCustom() : goRouter = _router;
 
   static GoRouter get _router =>
-      GoRouter(routes: routerPages, initialLocation: '/AuthScreen');
+      GoRouter(routes: routerPages, initialLocation: RouterName.bottomNavigatorScreen);
 
   static List<GoRoute> routerPages = {
     RouterName.bottomNavigatorScreen: bottomNavigatorScreenRouter,

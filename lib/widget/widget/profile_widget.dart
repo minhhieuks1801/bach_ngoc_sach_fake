@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class HomeWidget extends StatefulWidget {
-  const HomeWidget({super.key});
+class ProfileWidget extends StatefulWidget {
+  const ProfileWidget({super.key});
 
   @override
-  State<HomeWidget> createState() => _HomeWidgetState();
+  State<ProfileWidget> createState() => _ProfileWidgetState();
 }
 
-class _HomeWidgetState extends State<HomeWidget> {
+class _ProfileWidgetState extends State<ProfileWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Hello .....!',
+          'Profile',
           style: TextStyle(
             fontSize: 18,
           ),
@@ -21,7 +21,7 @@ class _HomeWidgetState extends State<HomeWidget> {
       ),
       body: const Center(
         child: Text(
-          'Home',
+          'Profile',
           style: TextStyle(
             fontSize: 38,
           ),
