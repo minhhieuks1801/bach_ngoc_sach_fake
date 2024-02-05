@@ -14,10 +14,13 @@ class _HomeWidgetState extends State<HomeWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CustomThemeBloc, CustomThemeState>(
-      builder: (context, state) {
+      builder: (context, customThemeState) {
         return Scaffold(
+          backgroundColor:
+              customThemeState.darkOrNight ? const Color(0xff424242) : const Color(0xffffffff),
           appBar: AppBar(
-            backgroundColor: state.darkOrNight ? Colors.white : Colors.transparent,
+            backgroundColor:
+                customThemeState.darkOrNight ? const Color(0xff424242) : const Color(0xffffffff),
             title: const Text(
               'Hello .....!',
               style: TextStyle(
@@ -26,45 +29,62 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
             actions: [
               PopupMenuButton(
-                itemBuilder: (_) =>
-                [
-                  PopupMenuItem(child: GestureDetector(
-                    onTap: () {
-                      dI<CustomThemeBloc>().add(UpdateThemeEvent(!state.darkOrNight));
-                    },
-                    child: Container(
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: const Color(0xff424242),
-                      ),
-                      margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 5),
-                      padding: const EdgeInsets.only(left: 15, bottom: 10, right: 10, top: 10),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            flex: 7,
-                            child: Text(
-                              'Đăng nhập',
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Color(0xffffffff),
+                color: customThemeState.darkOrNight
+                    ? const Color(0xff424242)
+                    : const Color(0xffffffff),
+                icon: Icon(
+                  Icons.menu,
+                  color: customThemeState.darkOrNight
+                      ? const Color(0xffffffff)
+                      : const Color(0xff424242),
+                ),
+                itemBuilder: (_) => [
+                  PopupMenuItem(
+                    child: GestureDetector(
+                      onTap: () {
+                        dI<CustomThemeBloc>().add(UpdateThemeEvent(!customThemeState.darkOrNight));
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: customThemeState.darkOrNight
+                              ? const Color(0xff424242)
+                              : const Color(0xffffffff),
+                        ),
+                        margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 5),
+                        padding: const EdgeInsets.only(left: 15, bottom: 10, right: 10, top: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              flex: 7,
+                              child: Text(
+                                'Ngày / Đêm',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: customThemeState.darkOrNight
+                                      ? const Color(0xffffffff)
+                                      : const Color(0xff000000),
+                                ),
                               ),
                             ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Icon(
-                              Icons.navigate_next,
-                              color: Color(0xffffffff),
-                              size: 24,
-                            ),
-                          )
-                        ],
+                            Expanded(
+                              flex: 1,
+                              child: Icon(
+                                Icons.navigate_next,
+                                color: customThemeState.darkOrNight
+                                    ? const Color(0xffffffff)
+                                    : const Color(0xff000000),
+                                size: 24,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),)
+                  )
                 ],
               ),
             ],

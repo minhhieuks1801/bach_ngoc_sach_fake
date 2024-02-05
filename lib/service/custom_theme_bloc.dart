@@ -11,7 +11,9 @@ class CustomThemeBloc extends HydratedBloc<CustomThemeEvent, CustomThemeState> {
   CustomThemeBloc()
       : super(const CustomThemeState(status: CustomThemeStatus.start, darkOrNight: true)) {
     on<CustomThemeEvent>((event, emit) {
-      on<UpdateThemeEvent>(update);
+      if (event is UpdateThemeEvent) {
+        update(event, emit);
+      }
     });
   }
 
@@ -26,10 +28,11 @@ class CustomThemeBloc extends HydratedBloc<CustomThemeEvent, CustomThemeState> {
   }
 
   Future<void> update(UpdateThemeEvent event, Emitter<CustomThemeState> emit) async {
+    emit(state.copyWith(status: CustomThemeStatus.init));
     try{
       emit(state.copyWith(darkOrNight: event.darkOrNight, status: CustomThemeStatus.success));
     }catch(e){
-      emit(state.copyWith(darkOrNight: true, status: CustomThemeStatus.error));
+      emit(state.copyWith(status: CustomThemeStatus.error));
     }
   }
 }
