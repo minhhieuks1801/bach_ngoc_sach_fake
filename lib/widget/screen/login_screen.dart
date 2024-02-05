@@ -29,6 +29,9 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+      body: Center(
+        child: Text('123456'),
+      ),
     );
   }
 }
