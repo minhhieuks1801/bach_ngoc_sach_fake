@@ -1,4 +1,7 @@
+import 'package:bach_ngoc_sach_fake/service/account_bloc.dart';
+import 'package:bach_ngoc_sach_fake/widget/widget/profile_no_login_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({super.key});
@@ -10,23 +13,27 @@ class ProfileWidget extends StatefulWidget {
 class _ProfileWidgetState extends State<ProfileWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Profile',
-          style: TextStyle(
-            fontSize: 18,
+    return BlocBuilder<AccountBloc, AccountState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text(
+              'Profile',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
           ),
-        ),
-      ),
-      body: const Center(
-        child: Text(
-          'Profile',
-          style: TextStyle(
-            fontSize: 38,
+          body: !state.isLogin ? const ProfileNoLoginWidget() : const Center(
+            child: Text(
+              'Profile',
+              style: TextStyle(
+                fontSize: 38,
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

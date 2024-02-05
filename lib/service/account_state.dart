@@ -23,7 +23,7 @@ class AccountState extends Equatable {
       account: Account.fromJson(json['account']),
       isLogin: json['isLogin'] as bool,
       status: AccountStatus.values.firstWhere(
-            (element) => element.name.toString() == json['status'],
+        (element) => element.name.toString() == json['status'],
       ),
     );
   }

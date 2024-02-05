@@ -18,20 +18,101 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController txtEmail = TextEditingController();
+  final TextEditingController txtPassWord = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Login',
-          style: TextStyle(
-            fontSize: 18,
-          ),
-        ),
-      ),
-      body: Center(
-        child: Text('123456'),
-      ),
-    );
+        backgroundColor: const Color(0xff424242),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+            ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
+                  bottomLeft: Radius.circular(30),
+                ),
+                child: Image.asset('assets/images/logo2.png',
+                    width: 150, height: 30, fit: BoxFit.fill)),
+            Container(
+              margin: const EdgeInsets.only(right: 20, left: 20, bottom: 30, top: 30),
+              child: TextField(
+                controller: txtEmail,
+                style: const TextStyle(fontSize: 20, color: Colors.black),
+                maxLines: 1,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email',
+                  labelStyle: TextStyle(fontSize: 20, color: Colors.grey),
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(right: 20, left: 20, bottom: 30),
+              child: TextField(
+                controller: txtPassWord,
+                style: const TextStyle(fontSize: 20, color: Colors.black),
+                maxLines: 1,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
+                  labelStyle: TextStyle(fontSize: 20, color: Colors.grey),
+                ),
+              ),
+            ),
+            GestureDetector(
+              child: Container(
+                alignment: Alignment.center,
+                margin: const EdgeInsets.only(right: 20, left: 20, bottom: 20),
+                height: 50,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: const Color(0xff128c7f),
+                ),
+                child: const Text('Đăng nhập', style: TextStyle(fontSize: 18, color: Colors.white)),
+              ),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: GestureDetector(
+                    child: Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.only(right: 25, left: 20, bottom: 20, top: 20),
+                      height: 40,
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.white,
+                      ),
+                      child: const Text('Đăng ký', style: TextStyle(fontSize: 18, color: Color(0xff128c7f))),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: GestureDetector(
+                    child: Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.only(right: 25, left: 20, bottom: 20, top: 20),
+                      height: 40,
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.white,
+                      ),
+                      child: const Text('Quên mật khẩu', style: TextStyle(fontSize: 18, color:  Color(0xff128c7f))),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+          ],
+        ));
   }
 }
