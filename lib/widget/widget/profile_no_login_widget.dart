@@ -31,7 +31,11 @@ class ProfileNoLoginWidget extends StatelessWidget {
                   height: 60,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                    color: language.colorButtonBackground,
+                    color: language.colorProfile,
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Color(0x1A000012), offset: Offset(0, 0), blurRadius: 5.0, spreadRadius: 0.0)
+                    ],
                   ),
                   margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 5),
                   padding: const EdgeInsets.only(left: 15, bottom: 10, right: 10, top: 10),
@@ -44,7 +48,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                           'Đăng nhập',
                           style: TextStyle(
                             fontSize: 18,
-                            color: language.colorButtonLable,
+                            color: language.colorHome,
                           ),
                         ),
                       ),
@@ -52,7 +56,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                         flex: 1,
                         child: Icon(
                           Icons.navigate_next,
-                          color: language.colorButtonLable,
+                          color: language.colorHome,
                           size: 24,
                         ),
                       )
@@ -64,7 +68,11 @@ class ProfileNoLoginWidget extends StatelessWidget {
                 height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  color: language.colorButtonBackground,
+                  color: language.colorProfile,
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Color(0x1A000012), offset: Offset(0, 0), blurRadius: 5.0, spreadRadius: 0.0)
+                  ],
                 ),
                 margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 5),
                 padding: const EdgeInsets.only(left: 15, bottom: 10, right: 10, top: 10),
@@ -76,7 +84,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                         'Hướng dẫn',
                         style: TextStyle(
                           fontSize: 18,
-                          color: language.colorButtonLable,
+                          color: language.colorHome,
                         ),
                       ),
                     ),
@@ -84,7 +92,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                       flex: 1,
                       child: Icon(
                         Icons.navigate_next,
-                        color: language.colorButtonLable,
+                        color: language.colorHome,
                         size: 24,
                       ),
                     )
@@ -95,7 +103,11 @@ class ProfileNoLoginWidget extends StatelessWidget {
                 height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  color: language.colorButtonBackground,
+                  color: language.colorProfile,
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Color(0x1A000012), offset: Offset(0, 0), blurRadius: 5.0, spreadRadius: 0.0)
+                  ],
                 ),
                 margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 5),
                 padding: const EdgeInsets.only(left: 15, bottom: 10, right: 10, top: 10),
@@ -107,7 +119,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                         'Liên hệ, báo lỗi',
                         style: TextStyle(
                           fontSize: 18,
-                          color: language.colorButtonLable,
+                          color: language.colorHome,
                         ),
                       ),
                     ),
@@ -115,7 +127,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                       flex: 1,
                       child: Icon(
                         Icons.navigate_next,
-                        color: language.colorButtonLable,
+                        color: language.colorHome,
                         size: 24,
                       ),
                     )

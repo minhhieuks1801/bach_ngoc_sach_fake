@@ -5,8 +5,12 @@ class Language {
   Color colorHome = const Color(0xff000000);
   Color colorButtonBackground = const Color(0xff000000);
   Color colorButtonLable = const Color(0xff000000);
+  Color colorProfile = const Color(0xff000000);
 
   Language({bool check = true}) {
+    colorProfile = check
+        ? const Color(0xff575757)
+        : const Color(0xffffffff);
     colorHome = check
         ? const Color(0xffffffff)
         : const Color(0xff000000);
