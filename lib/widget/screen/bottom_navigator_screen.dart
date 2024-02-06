@@ -1,10 +1,12 @@
-
+import 'package:bach_ngoc_sach_fake/font/language.dart';
 import 'package:bach_ngoc_sach_fake/router/router_name.dart';
+import 'package:bach_ngoc_sach_fake/service/custom_theme_bloc.dart';
 import 'package:bach_ngoc_sach_fake/widget/widget/follow_widget.dart';
 import 'package:bach_ngoc_sach_fake/widget/widget/home_widget.dart';
 import 'package:bach_ngoc_sach_fake/widget/widget/notification_widget.dart';
 import 'package:bach_ngoc_sach_fake/widget/widget/profile_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 GoRoute bottomNavigatorScreenRouter = GoRoute(
@@ -47,41 +49,52 @@ class BottomNavigatorState extends State<BottomNavigatorScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox(
-        height: MediaQuery.sizeOf(context).height,
-        child: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        //showUnselectedLabels: true,
-        selectedFontSize: 14,
-        unselectedFontSize: 12,
-        //type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 32),
-            label: 'Trang chủ',
+    return BlocBuilder<CustomThemeBloc, CustomThemeState>(
+      builder: (context, customThemeState) {
+        Language language = Language(check: customThemeState.darkOrNight);
+        return Scaffold(
+          body: SizedBox(
+            height: MediaQuery
+                .sizeOf(context)
+                .height,
+            child: Center(
+              child: _widgetOptions.elementAt(_selectedIndex),
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.collections_bookmark, size: 32),
-            label: 'Tủ truyện',
+          bottomNavigationBar: BottomNavigationBar(
+            //showUnselectedLabels: true,
+            selectedFontSize: 14,
+            unselectedFontSize: 12,
+            //type: BottomNavigationBarType.fixed,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.home, size: 32),
+                label: 'Trang chủ',
+                backgroundColor: language.colorBackgroundPopupMenuItem
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.collections_bookmark, size: 32),
+                label: 'Tủ truyện',
+                  backgroundColor: language.colorBackgroundPopupMenuItem
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.notifications, size: 32),
+                label: 'Thông báo',
+                  backgroundColor: language.colorBackgroundPopupMenuItem
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.account_circle, size: 32),
+                label: 'Tài khoản',
+                  backgroundColor: language.colorBackgroundPopupMenuItem
+              ),
+            ],
+            currentIndex: _selectedIndex,
+            selectedItemColor: const Color(0xff128c7f),
+            unselectedItemColor: const Color(0xff128c7f),
+            onTap: _onItemTapped,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications, size: 32),
-            label: 'Thông báo',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle, size: 32),
-            label: 'Tài khoản',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xff128c7f),
-        unselectedItemColor: Colors.black,
-        onTap: _onItemTapped,
-      ),
+        );
+      },
     );
   }
 }

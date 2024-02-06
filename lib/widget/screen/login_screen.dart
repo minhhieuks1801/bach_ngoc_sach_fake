@@ -1,3 +1,4 @@
+import 'package:bach_ngoc_sach_fake/font/language.dart';
 import 'package:bach_ngoc_sach_fake/router/router_name.dart';
 import 'package:bach_ngoc_sach_fake/service/account_bloc.dart';
 import 'package:bach_ngoc_sach_fake/service/custom_theme_bloc.dart';
@@ -30,10 +31,9 @@ class _LoginScreenState extends State<LoginScreen> {
       builder: (context, customThemeState) {
         return BlocBuilder<AccountBloc, AccountState>(
           builder: (context, accountState) {
+            Language language = Language(check: customThemeState.darkOrNight);
             return Scaffold(
-                backgroundColor: customThemeState.darkOrNight
-                    ? const Color(0xff424242)
-                    : const Color(0xffffffff),
+                backgroundColor: language.colorBackgroundPopupMenuItem,
                 body: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -98,17 +98,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               width: MediaQuery.of(context).size.width * 0.4,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                color: customThemeState.darkOrNight
-                                    ? const Color(0xffffffff)
-                                    : const Color(0xff424242),
+                                color: language.colorButtonBackground,
                               ),
                               child: Text(
                                 'Đăng ký',
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: customThemeState.darkOrNight
-                                      ? const Color(0xff128c7f)
-                                      : const Color(0xffffffff),
+                                  color: language.colorButtonLable,
                                 ),
                               ),
                             ),
@@ -124,17 +120,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               width: MediaQuery.of(context).size.width * 0.4,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                color: customThemeState.darkOrNight
-                                    ? const Color(0xffffffff)
-                                    : const Color(0xff424242),
+                                color: language.colorButtonBackground,
                               ),
                               child: Text(
                                 'Quên mật khẩu',
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: customThemeState.darkOrNight
-                                      ? const Color(0xff128c7f)
-                                      : const Color(0xffffffff),
+                                  color: language.colorButtonLable,
                                 ),
                               ),
                             ),

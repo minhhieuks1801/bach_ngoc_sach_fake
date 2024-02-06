@@ -1,3 +1,4 @@
+import 'package:bach_ngoc_sach_fake/font/language.dart';
 import 'package:bach_ngoc_sach_fake/service/custom_theme_bloc.dart';
 import 'package:bach_ngoc_sach_fake/service/injection.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,13 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
+
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CustomThemeBloc, CustomThemeState>(
       builder: (context, customThemeState) {
+        Language language = Language(check: customThemeState.darkOrNight);
         return Scaffold(
           backgroundColor:
               customThemeState.darkOrNight ? const Color(0xff424242) : const Color(0xffffffff),
@@ -29,14 +33,10 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
             actions: [
               PopupMenuButton(
-                color: customThemeState.darkOrNight
-                    ? const Color(0xff424242)
-                    : const Color(0xffffffff),
+                color: language.colorBackgroundPopupMenuItem,
                 icon: Icon(
                   Icons.menu,
-                  color: customThemeState.darkOrNight
-                      ? const Color(0xffffffff)
-                      : const Color(0xff424242),
+                  color: language.colorHome,
                 ),
                 itemBuilder: (_) => [
                   PopupMenuItem(
@@ -49,9 +49,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         height: 60,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: customThemeState.darkOrNight
-                              ? const Color(0xff424242)
-                              : const Color(0xffffffff),
+                          color: language.colorBackgroundPopupMenuItem,
                         ),
                         margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 5),
                         padding: const EdgeInsets.only(left: 15, bottom: 10, right: 10, top: 10),
@@ -64,9 +62,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 'Ngày / Đêm',
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: customThemeState.darkOrNight
-                                      ? const Color(0xffffffff)
-                                      : const Color(0xff000000),
+                                  color: language.colorHome,
                                 ),
                               ),
                             ),
@@ -74,9 +70,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               flex: 1,
                               child: Icon(
                                 Icons.navigate_next,
-                                color: customThemeState.darkOrNight
-                                    ? const Color(0xffffffff)
-                                    : const Color(0xff000000),
+                                color: language.colorHome,
                                 size: 24,
                               ),
                             )
@@ -89,11 +83,12 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
             ],
           ),
-          body: const Center(
+          body: Center(
             child: Text(
-              'Home',
+              'home',
               style: TextStyle(
                 fontSize: 38,
+                color: language.colorHome,
               ),
             ),
           ),
