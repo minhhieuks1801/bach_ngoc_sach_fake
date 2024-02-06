@@ -20,15 +20,14 @@ class _HomeWidgetState extends State<HomeWidget> {
       builder: (context, customThemeState) {
         Language language = Language(check: customThemeState.darkOrNight);
         return Scaffold(
-          backgroundColor:
-              customThemeState.darkOrNight ? const Color(0xff424242) : const Color(0xffffffff),
+          backgroundColor: language.colorBackgroundPopupMenuItem,
           appBar: AppBar(
-            backgroundColor:
-                customThemeState.darkOrNight ? const Color(0xff424242) : const Color(0xffffffff),
-            title: const Text(
+            backgroundColor: language.colorBackgroundPopupMenuItem,
+            title: Text(
               'Hello .....!',
               style: TextStyle(
                 fontSize: 18,
+                color: language.colorHome,
               ),
             ),
             actions: [
