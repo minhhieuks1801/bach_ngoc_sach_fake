@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           bottomLeft: Radius.circular(30),
                         ),
                         child: Image.asset('assets/images/logo2.png',
-                            width: 150, height: 30, fit: BoxFit.fill)),
+                            width: 150, height: 40, fit: BoxFit.fill)),
                     Container(
                       margin: const EdgeInsets.only(right: 20, left: 20, bottom: 30, top: 30),
                       child: TextField(
