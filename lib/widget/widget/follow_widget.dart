@@ -17,7 +17,7 @@ class _FollowWidgetState extends State<FollowWidget> {
   Widget build(BuildContext context) {
     return BlocBuilder<AccountBloc, AccountState>(
       builder: (context, state) {
-        if (!state.isLogin) {
+        if (state.isLogin) {
           Future.delayed(Duration.zero, () {
             dI<AppNavigation>().pushName(
               context,

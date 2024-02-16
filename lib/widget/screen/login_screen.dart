@@ -2,6 +2,7 @@ import 'package:bach_ngoc_sach_fake/font/language.dart';
 import 'package:bach_ngoc_sach_fake/router/router_name.dart';
 import 'package:bach_ngoc_sach_fake/service/account_bloc.dart';
 import 'package:bach_ngoc_sach_fake/service/custom_theme_bloc.dart';
+import 'package:bach_ngoc_sach_fake/service/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -73,6 +74,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     GestureDetector(
+                      onTap: () {
+                        dI<AccountBloc>().add(LoginEvent(txtEmail.text, txtPassWord.text));
+                      },
                       child: Container(
                         alignment: Alignment.center,
                         margin: const EdgeInsets.only(right: 20, left: 20, bottom: 20),

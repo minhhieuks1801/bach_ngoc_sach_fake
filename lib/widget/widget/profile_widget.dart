@@ -83,7 +83,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                 ],
               ),
-              body: !state.isLogin ? const ProfileNoLoginWidget() : const Center(
+              body: state.isLogin ? const ProfileNoLoginWidget() : const Center(
                 child: Text(
                   'Profile',
                   style: TextStyle(

@@ -22,7 +22,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
         Language language = Language(check: customThemeState.darkOrNight);
         return BlocBuilder<AccountBloc, AccountState>(
           builder: (context, state) {
-            if (!state.isLogin) {
+            if (state.isLogin) {
               Future.delayed(Duration.zero, () {
                 dI<AppNavigation>().pushName(
                   context,
