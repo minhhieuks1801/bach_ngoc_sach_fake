@@ -10,11 +10,9 @@ part 'custom_theme_state.dart';
 class CustomThemeBloc extends HydratedBloc<CustomThemeEvent, CustomThemeState> {
   CustomThemeBloc()
       : super(const CustomThemeState(status: CustomThemeStatus.start, darkOrNight: true)) {
-    on<CustomThemeEvent>((event, emit) {
-      if (event is UpdateThemeEvent) {
-        update(event, emit);
-      }
-    });
+    on<CustomThemeEvent>((event, emit) {});
+    on<UpdateThemeEvent>(update);
+
   }
 
   @override

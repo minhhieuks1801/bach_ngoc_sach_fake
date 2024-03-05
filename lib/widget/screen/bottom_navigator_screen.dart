@@ -70,22 +70,22 @@ class BottomNavigatorState extends State<BottomNavigatorScreen> {
               BottomNavigationBarItem(
                 icon: const Icon(Icons.home, size: 32),
                 label: 'Trang chủ',
-                backgroundColor: language.colorBackgroundPopupMenuItem
+                backgroundColor: language.colorBackground
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.collections_bookmark, size: 32),
                 label: 'Tủ truyện',
-                  backgroundColor: language.colorBackgroundPopupMenuItem
+                  backgroundColor: language.colorBackground
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.notifications, size: 32),
                 label: 'Thông báo',
-                  backgroundColor: language.colorBackgroundPopupMenuItem
+                  backgroundColor: language.colorBackground
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.account_circle, size: 32),
                 label: 'Tài khoản',
-                  backgroundColor: language.colorBackgroundPopupMenuItem
+                  backgroundColor: language.colorBackground
               ),
             ],
             currentIndex: _selectedIndex,

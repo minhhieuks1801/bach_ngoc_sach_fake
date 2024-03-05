@@ -22,37 +22,37 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           builder: (context, state) {
             Language language = Language(check: customThemeState.darkOrNight);
             return Scaffold(
+              backgroundColor: language.colorBackground,
               appBar: AppBar(
-                backgroundColor: language.colorBackgroundPopupMenuItem,
+                backgroundColor: language.colorBackground,
                 title: Text(
                   'Profile',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: language.colorHome
-                  ),
+                  style: TextStyle(fontSize: 18, color: language.colorTxtHome),
                 ),
                 actions: [
                   PopupMenuButton(
-                    color: language.colorBackgroundPopupMenuItem,
+                    color: language.colorBackground,
                     icon: Icon(
                       Icons.menu,
-                      color: language.colorHome,
+                      color: language.colorTxtHome,
                     ),
                     itemBuilder: (_) => [
                       PopupMenuItem(
                         child: GestureDetector(
                           onTap: () {
-                            dI<CustomThemeBloc>().add(UpdateThemeEvent(!customThemeState.darkOrNight));
+                            dI<CustomThemeBloc>()
+                                .add(UpdateThemeEvent(!customThemeState.darkOrNight));
                             Navigator.of(context).pop();
                           },
                           child: Container(
                             height: 60,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: language.colorBackgroundPopupMenuItem,
+                              color: language.colorBackground,
                             ),
                             margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 5),
-                            padding: const EdgeInsets.only(left: 15, bottom: 10, right: 10, top: 10),
+                            padding:
+                                const EdgeInsets.only(left: 15, bottom: 10, right: 10, top: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -62,7 +62,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     'Ngày / Đêm',
                                     style: TextStyle(
                                       fontSize: 18,
-                                      color: language.colorHome,
+                                      color: language.colorTxtHome,
                                     ),
                                   ),
                                 ),
@@ -70,7 +70,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   flex: 1,
                                   child: Icon(
                                     Icons.navigate_next,
-                                    color: language.colorHome,
+                                    color: language.colorTxtHome,
                                     size: 24,
                                   ),
                                 )
@@ -83,14 +83,171 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                 ],
               ),
-              body: state.isLogin ? const ProfileNoLoginWidget() : const Center(
-                child: Text(
-                  'Profile',
-                  style: TextStyle(
-                    fontSize: 38,
-                  ),
-                ),
-              ),
+              body: !state.isLogin
+                  ? const ProfileNoLoginWidget()
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 28, top: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 100,
+                                width: 100,
+                                child: CircleAvatar(
+                                  radius: 100,
+                                  backgroundImage: NetworkImage(
+                                    state.account.imgUser.toString(),
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    state.account.name.toString(),
+                                    textAlign: TextAlign.left,
+                                    style:
+                                        TextStyle(fontSize: 12, fontWeight: FontWeight.bold,  color: language.colorTxtHome),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    state.account.email.toString(),
+                                    textAlign: TextAlign.left,
+                                    style: const TextStyle(
+                                        fontSize: 12, fontWeight: FontWeight.normal),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 28),
+                                child: Row(children: [
+                                  const Icon(Icons.accessibility, size: 32, color: Color(0xFF1E0094)),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    'Setting Account',
+                                    style: TextStyle(fontSize: 18,  color: language.colorTxtHome),
+                                  )
+                                ]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 28),
+                                child: const Row(children: [
+                                  Icon(Icons.link, size: 32, color: Color(0xFF1E0094)),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text('Connected Accounts', style: TextStyle(fontSize: 18))
+                                ]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 28),
+                                child: const Row(
+                                  children: [
+                                    Icon(Icons.star_border, size: 32, color: Color(0xFF1E0094)),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Text('Rate App', style: TextStyle(fontSize: 18))
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 28),
+                                child: const Row(
+                                  children: [
+                                    Icon(Icons.star_border, size: 32, color: Color(0xFF1E0094)),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Text(
+                                      'Share app',
+                                      style: TextStyle(fontSize: 18),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 28),
+                                child: const Row(children: [
+                                  Icon(Icons.star_border, size: 32, color: Color(0xFF1E0094)),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text('Privacy Policy', style: TextStyle(fontSize: 18))
+                                ]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 28),
+                                child: const Row(
+                                  children: [
+                                    Icon(Icons.star_border, size: 32, color: Color(0xFF1E0094)),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Text('Sign Out', style: TextStyle(fontSize: 18))
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
             );
           },
         );

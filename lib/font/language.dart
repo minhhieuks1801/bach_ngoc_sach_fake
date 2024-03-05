@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 class Language {
-  Color colorBackgroundPopupMenuItem = const Color(0xffffffff);
-  Color colorHome = const Color(0xff000000);
+  Color colorBackground = const Color(0xffffffff);
+  Color colorTxtHome = const Color(0xff000000);
   Color colorButtonBackground = const Color(0xff000000);
   Color colorButtonLable = const Color(0xff000000);
   Color colorProfile = const Color(0xff000000);
@@ -11,10 +11,10 @@ class Language {
     colorProfile = check
         ? const Color(0xff575757)
         : const Color(0xffffffff);
-    colorHome = check
+    colorTxtHome = check
         ? const Color(0xffffffff)
         : const Color(0xff000000);
-    colorBackgroundPopupMenuItem = check
+    colorBackground = check
         ? const Color(0xff424242)
         : const Color(0xffffffff);
     colorButtonBackground = check

@@ -15,7 +15,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
       builder: (context, customThemeState) {
         Language language = Language(check: customThemeState.darkOrNight);
         return Scaffold(
-          backgroundColor: language.colorBackgroundPopupMenuItem,
+          backgroundColor: language.colorBackground,
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +48,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                           'Đăng nhập',
                           style: TextStyle(
                             fontSize: 18,
-                            color: language.colorHome,
+                            color: language.colorTxtHome,
                           ),
                         ),
                       ),
@@ -56,7 +56,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                         flex: 1,
                         child: Icon(
                           Icons.navigate_next,
-                          color: language.colorHome,
+                          color: language.colorTxtHome,
                           size: 24,
                         ),
                       )
@@ -84,7 +84,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                         'Hướng dẫn',
                         style: TextStyle(
                           fontSize: 18,
-                          color: language.colorHome,
+                          color: language.colorTxtHome,
                         ),
                       ),
                     ),
@@ -92,7 +92,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                       flex: 1,
                       child: Icon(
                         Icons.navigate_next,
-                        color: language.colorHome,
+                        color: language.colorTxtHome,
                         size: 24,
                       ),
                     )
@@ -119,7 +119,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                         'Liên hệ, báo lỗi',
                         style: TextStyle(
                           fontSize: 18,
-                          color: language.colorHome,
+                          color: language.colorTxtHome,
                         ),
                       ),
                     ),
@@ -127,7 +127,7 @@ class ProfileNoLoginWidget extends StatelessWidget {
                       flex: 1,
                       child: Icon(
                         Icons.navigate_next,
-                        color: language.colorHome,
+                        color: language.colorTxtHome,
                         size: 24,
                       ),
                     )

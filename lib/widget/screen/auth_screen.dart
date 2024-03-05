@@ -31,17 +31,10 @@ class _AuthScreenState extends State<AuthScreen> {
     return BlocBuilder<AccountBloc, AccountState>(
       builder: (context, state) {
         Future.delayed(const Duration(milliseconds: 50), () {
-          if (state.isLogin) {
-            dI<AppNavigation>().pushReplacementNamed(
-              context,
-              RouterName.loginScreen,
-            );
-          } else {
-            dI<AppNavigation>().pushReplacementNamed(
-              context,
-              RouterName.bottomNavigatorScreen,
-            );
-          }
+          dI<AppNavigation>().pushReplacementNamed(
+            context,
+            RouterName.bottomNavigatorScreen,
+          );
         });
         return const Scaffold(
           body: Center(

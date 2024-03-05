@@ -7,7 +7,7 @@ part of 'follow.dart';
 // **************************************************************************
 
 Follow _$FollowFromJson(Map<String, dynamic> json) => Follow(
-      idNovel: json['idNovel'] as String? ?? '',
+      idNovel: json.keys as String? ?? '',
       idChapter: json['idChapter'] as String? ?? '',
     );
 

@@ -22,7 +22,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
         Language language = Language(check: customThemeState.darkOrNight);
         return BlocBuilder<AccountBloc, AccountState>(
           builder: (context, state) {
-            if (state.isLogin) {
+            if (!state.isLogin) {
               Future.delayed(Duration.zero, () {
                 dI<AppNavigation>().pushName(
                   context,
@@ -31,21 +31,24 @@ class _NotificationWidgetState extends State<NotificationWidget> {
               });
             }
             return Scaffold(
+              backgroundColor: language.colorBackground,
               appBar: AppBar(
+                backgroundColor: language.colorBackground,
                 title: !state.isLogin
                     ? const Center(child: SizedBox())
-                    : const Text(
+                    : Text(
                   'Notification',
                   style: TextStyle(
                     fontSize: 18,
+                    color: language.colorTxtHome,
                   ),
                 ),
                 actions: [
                   PopupMenuButton(
-                    color: language.colorBackgroundPopupMenuItem,
+                    color: language.colorBackground,
                     icon: Icon(
                       Icons.menu,
-                      color: language.colorHome,
+                      color: language.colorTxtHome,
                     ),
                     itemBuilder: (_) =>
                     [
@@ -60,7 +63,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                             height: 60,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: language.colorBackgroundPopupMenuItem,
+                              color: language.colorBackground,
                             ),
                             margin: const EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 5),
                             padding: const EdgeInsets.only(
@@ -74,7 +77,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                     'Ngày / Đêm',
                                     style: TextStyle(
                                       fontSize: 18,
-                                      color: language.colorHome,
+                                      color: language.colorTxtHome,
                                     ),
                                   ),
                                 ),
@@ -82,7 +85,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                   flex: 1,
                                   child: Icon(
                                     Icons.navigate_next,
-                                    color: language.colorHome,
+                                    color: language.colorTxtHome,
                                     size: 24,
                                   ),
                                 )
@@ -95,11 +98,12 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                   ),
                 ],
               ),
-              body: const Center(
+              body: Center(
                 child: Text(
                   'Notification',
                   style: TextStyle(
                     fontSize: 38,
+                    color: language.colorTxtHome,
                   ),
                 ),
               ),

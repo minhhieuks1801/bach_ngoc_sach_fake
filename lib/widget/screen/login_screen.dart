@@ -1,4 +1,5 @@
 import 'package:bach_ngoc_sach_fake/font/language.dart';
+import 'package:bach_ngoc_sach_fake/router/app_navigation.dart';
 import 'package:bach_ngoc_sach_fake/router/router_name.dart';
 import 'package:bach_ngoc_sach_fake/service/account_bloc.dart';
 import 'package:bach_ngoc_sach_fake/service/custom_theme_bloc.dart';
@@ -33,12 +34,20 @@ class _LoginScreenState extends State<LoginScreen> {
         return BlocBuilder<AccountBloc, AccountState>(
           builder: (context, accountState) {
             Language language = Language(check: customThemeState.darkOrNight);
+            Future.delayed(const Duration(milliseconds: 50), () {
+              if (accountState.isLogin) {
+                dI<AppNavigation>().pushReplacementNamed(
+                  context,
+                  RouterName.bottomNavigatorScreen,
+                );
+              }
+            });
             return Scaffold(
-                backgroundColor: language.colorBackgroundPopupMenuItem,
+                backgroundColor: language.colorBackground,
                 body: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ClipRRect(
+                    /*ClipRRect(
                         borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(30),
                           topRight: Radius.circular(30),
@@ -46,12 +55,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           bottomLeft: Radius.circular(30),
                         ),
                         child: Image.asset('assets/images/logo2.png',
-                            width: 150, height: 40, fit: BoxFit.fill)),
+                            width: 150, height: 40, fit: BoxFit.fill)),*/
                     Container(
                       margin: const EdgeInsets.only(right: 20, left: 20, bottom: 30, top: 30),
                       child: TextField(
                         controller: txtEmail,
-                        style: const TextStyle(fontSize: 20, color: Colors.black),
+                        style: TextStyle(fontSize: 20, color: language.colorTxtHome),
                         maxLines: 1,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
@@ -64,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       margin: const EdgeInsets.only(right: 20, left: 20, bottom: 30),
                       child: TextField(
                         controller: txtPassWord,
-                        style: const TextStyle(fontSize: 20, color: Colors.black),
+                        style: TextStyle(fontSize: 20, color: language.colorTxtHome),
                         maxLines: 1,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
